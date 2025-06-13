@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
+import ProductList from '../components/ProductList';
+import heladeraImg from '../img/heladera.jpg';
+import microondasImg from '../img/microondas.jpg';
+import licuadoraImg from '../img/licuadora.jpg';
 const Home = () => {
   const [productos, setProductos] = useState([]); 
 
@@ -10,7 +13,7 @@ const Home = () => {
         id: 1,
         nombre: 'Heladera',
         precio: 120000,
-        // imagen: heladeraImg ,
+        imagen: heladeraImg ,
         categoria: 'Frío',
         descripcion: 'Heladera con freezer '
       },
@@ -18,7 +21,7 @@ const Home = () => {
         id: 2,
         nombre: 'Microondas',
         precio: 45000,
-        // imagen: microondasImg,
+        imagen: microondasImg,
         categoria: 'Cocina',
         descripcion: 'Microondas digital 25L '
       },
@@ -26,7 +29,7 @@ const Home = () => {
         id: 3,
         nombre: 'Licuadora Philips',
         precio: 54999,
-        // imagen: licuadoraImg,
+        imagen: licuadoraImg,
         categoria: 'Cocina',
         descripcion: 'Licuadora potente de 800W con cuchillas ProBlend para mezclas más suaves y rápidas',
       },
@@ -37,7 +40,7 @@ const Home = () => {
   return (
     <div>
       <h1 className="text-center my-4">Catálogo de Productos</h1>
-      productos={productos} 
+      <ProductList productos={productos} />
     </div>
   );
   
