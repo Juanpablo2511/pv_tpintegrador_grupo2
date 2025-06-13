@@ -1,0 +1,22 @@
+.card-producto {
+    display:flex ;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: tranform 0.2s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    
+}
+
+.card-producto:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card-producto-img {
+    object-fit:cover;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 10px;
+}

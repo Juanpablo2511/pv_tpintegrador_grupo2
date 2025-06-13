@@ -8,17 +8,19 @@ import NotFound from './pages/NotFound'
 
 function App() {
   return (
-    <>
+    <div className='app-container'>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/favoritos" element={<Favorites />} />
-        <Route path="/producto/:id" element={<ProductDetail />} />
-        <Route path="/crear" element={<CreateEditProduct />} />
-        <Route path="/editar/:id" element={<CreateEditProduct />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
+      <main className='flex-glow-1'>
+        <Routes>
+         <Route path="/" element={<Home />} />
+         <Route path="/favoritos" element={<Favorites />} />
+         <Route path="/producto/:id" element={<ProductDetail />} />
+         <Route path="/crear" element={<CreateEditProduct />} />
+         <Route path="/editar/:id" element={<CreateEditProduct />} />
+         <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
 
