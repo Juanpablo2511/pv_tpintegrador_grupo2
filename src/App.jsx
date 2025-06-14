@@ -5,6 +5,7 @@ import Favorites from './pages/Favorites'
 import ProductDetail from './pages/ProductDetail'
 import CreateEditProduct from './pages/CreateEditProduct'
 import NotFound from './pages/NotFound'
+import './App.css';
 
 function App() {
   return (
