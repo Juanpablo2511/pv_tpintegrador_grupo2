@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ProductList from '../components/ProductList'
 export default function Home() {
   const [productos, setProductos] = useState([]);
 
