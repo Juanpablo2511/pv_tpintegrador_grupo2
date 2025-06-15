@@ -11,10 +11,10 @@ export default function Home() {
 
   useEffect(() => {
 
-    if(productos.length === 0) {
+    if(productos.length === 0) {        //Evita la llamadas innecesarias a la API
       dispatch(fetchProductos ());
     }
-  }, [dispatch ,  productos.length]);
+  }, [dispatch ,  productos.length]); 
 
   return (
     <div>
