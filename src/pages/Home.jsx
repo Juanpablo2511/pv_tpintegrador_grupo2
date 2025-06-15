@@ -1,24 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import ProductList from '../components/ProductList'
+import { useDispatch ,  useSelector } from 'react-redux';
+import { fetchProductos } from '../productsSlice';
+
+
+
 export default function Home() {
-  const [productos, setProductos] = useState([]);
+  const dispatch = useDispatch();
+  const productos = useSelector (state => state.productos.lista);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(res => res.json())
-      .then(data => {
-        const adaptados = data.map(prod => ({
-          id: prod.id,
-          nombre: prod.title,
-          precio: prod.price,
-          imagen: prod.image,
-          categoria: prod.category
-        }));
-        setProductos(adaptados);
-      })
-      .catch(err => console.error(err));
-  }, []);
 
+    if(productos.length === 0) {
+      dispatch(fetchProductos ());
+    }
+  }, [dispatch ,  productos.length]);
 
   return (
     <div>
