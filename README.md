@@ -1,12 +1,70 @@
-# React + Vite
+Intregrantes del Proyecto : 
+Farfan Juan Pablo - User : JuanPablo2511
+Fernandez Nadia Evangelina - User : NadieE-Fernandez
+Quispe Matias - User : Matifq14 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🛒 TP Integrador - SPA de Productos con React, Vite y Redux
+Este proyecto es una aplicación web de catálogo de productos, desarrollada como trabajo práctico integrador para la materia Programación Visual. Es una Single Page Application (SPA) que permite a los usuarios:
 
-Currently, two official plugins are available:
+Ver un catálogo de productos traídos desde una API
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Marcar y gestionar productos como favoritos
 
-## Expanding the ESLint configuration
+Visualizar los productos favoritos en una sección dedicada
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Ver detalles individuales de productos
+
+Crear y editar productos (CRUD simulado)
+
+⚙️ Tecnologías y herramientas utilizadas
+⚛️ React – Librería principal para construir la interfaz
+
+⚡ Vite – Herramienta de bundling para desarrollo rápido y eficiente
+
+🎯 Redux Toolkit – Para manejar el estado global de los productos
+
+❤️ React Context API – Para gestionar favoritos de forma desacoplada
+
+💄 Bootstrap 5 – Para estilos rápidos y responsive
+
+🧭 React Router DOM – Para la navegación entre vistas (SPA)
+
+🖼️ React Icons – Para los íconos de favoritos (💖)
+
+🐙 Git & GitHub – Para control de versiones y trabajo colaborativo con ramas
+
+🧠 Funcionalidades principales
+✅ Catálogo de productos: Se consume desde FakeStore API usando Redux.
+
+✅ Vista de producto: Página individual para cada producto (/producto/:id).
+
+✅ Favoritos:
+
+Se puede marcar productos como favoritos desde el listado.
+
+Se almacena el estado de favoritos en Context API.
+
+Se visualizan en /favoritos.
+
+✅ CRUD simulado: Formulario para crear o editar productos (vista de administración).
+
+✅ Routing completo: Navegación con rutas protegidas y 404 (NotFound).
+
+✅ Trabajo con ramas: Cada desarrollador trabajó en su rama sin romper main, y se hizo merge cuando correspondía.
+
+👥 Trabajo en equipo
+🧠 Cada miembro del equipo trabajó en una rama.
+
+✅ El proyecto cumple con el uso de ramas, merges y commits organizados, como se pidió en el práctico.
+
+📌 Se utilizó git merge y pull requests para integrar funcionalidades al main.
+
+🚀 Cómo correr el proyecto localmente: 
+
+npm install
+
+npm run dev
+
+
+
+
