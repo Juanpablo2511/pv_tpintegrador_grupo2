@@ -22,6 +22,16 @@ const productsSlice = createSlice ({
     },
     reducers:{
       //agregar agregar,editarproducto
+      agregarProducto: (state, action) => {
+      state.lista.push({ ...action.payload, id: Date.now() });
+    },
+    editarProducto: (state, action) => {
+      const prodEditado = action.payload;
+      const index = state.lista.findIndex(p => p.id === prodEditado.id);
+      if (index !== -1) {
+        state.lista[index] = prodEditado;
+      }
+    }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProductos.fulfilled , (state , action)=> {
@@ -30,5 +40,5 @@ const productsSlice = createSlice ({
     }
 
 });
-
+export const { agregarProducto, editarProducto } = productsSlice.actions;
 export default productsSlice.reducer;
