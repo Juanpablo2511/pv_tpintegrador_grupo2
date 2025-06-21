@@ -1,5 +1,6 @@
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 import { useFavorites } from '../context/FavoritesContext'
+import { useNavigate } from 'react-router-dom'
 import '../css/ProductCard.css'
 
 export default function ProductCardFavoritos({ producto }) {
@@ -10,6 +11,12 @@ export default function ProductCardFavoritos({ producto }) {
     console.log('Producto clickeado:', producto)
     console.log('🚀 Producto favorito:', producto)
     toggleFavorite(producto) // Marca o desmarca sin redirigir
+
+  }
+
+  const navigate = useNavigate()
+    const verDetalles = () => {
+      navigate(`/producto/${producto.id}`)
   }
 
   return (
@@ -32,7 +39,9 @@ export default function ProductCardFavoritos({ producto }) {
         </h5>
         <p className="card-text text-muted mb-1">{producto.categoria}</p>
         <p className="fw-bold mb-3">${producto.precio}</p>
-        <button className="btn btn-outline-primary mt-auto">Ver más detalles</button>
+       <button className="btn btn-outline-primary mt-auto" onClick={verDetalles}>
+          Ver más detalles
+        </button>
       </div>
     </div>
   )

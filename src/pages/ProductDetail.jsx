@@ -1,12 +1,16 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useFavorites } from '../context/FavoritesContext'
 
 const ProductDetail = () => {
   const { id } = useParams();
   const producto = useSelector(state =>
     state.productos.lista.find(p => p.id === parseInt(id))
   );
+
+  const { favorites, toggleFavorite } = useFavorites()
+  const isFavorite = favorites.some(item => item.id === producto.id)
 
   if (!producto) {
     return <div className="container mt-5">Producto no encontrado.</div>;
@@ -36,6 +40,12 @@ const ProductDetail = () => {
             <Link to="/" className="btn btn-secondary">
               Volver al inicio
             </Link>
+            <button
+              className="btn btn-outline-danger"
+              onClick={() => toggleFavorite(producto)}
+            >
+              {isFavorite ? 'Quitar de favoritos ❤️' : 'Agregar a favoritos 🤍'}
+            </button>
           </div>
         </div>
       </div>
