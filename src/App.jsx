@@ -21,6 +21,28 @@ function App() {
          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-content">
+            <div className="footer-section">
+              <h5>TechStore</h5>
+              <p>Tu tienda de confianza para productos tecnológicos de alta calidad. Ofrecemos la mejor selección de electrónicos, ropa y accesorios con envío rápido y garantía.</p>
+            </div>
+            <div className="footer-section">
+              <h6>Síguenos</h6>
+              <div className="social-links">
+                <a href="#" className="social-link">📘 Facebook</a>
+                <a href="#" className="social-link">📷 Instagram</a>
+                <a href="#" className="social-link">🐦 X (Twitter)</a>
+                <a href="#" className="social-link">💼 LinkedIn</a>
+              </div>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <small>&copy; 2025 TechStore - Todos los derechos reservados</small>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

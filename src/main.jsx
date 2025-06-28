@@ -7,6 +7,8 @@ import './index.css'
 import { Provider } from 'react-redux'
 import { store } from './store.jsx'
 import { FavoritesProvider } from './context/FavoritesContext.jsx'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -14,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Provider store={store}>
         <FavoritesProvider>
           <App />
+           <ToastContainer position="bottom-right" autoClose={2500} />
         </FavoritesProvider>
       </Provider>
     </BrowserRouter>

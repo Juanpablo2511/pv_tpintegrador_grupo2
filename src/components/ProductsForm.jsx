@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { agregarProducto, editarProducto } from '../productsSlice.jsx';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const campos = [
   { name: 'nombre', label: 'Nombre', type: 'text' },
   { name: 'precio', label: 'Precio', type: 'number' },
-  { name: 'categoria', label: 'Categoría', type: 'text' },
+  { name: 'categoria', label: 'Categoría', type: 'select' },
   { name: 'descripcion', label: 'Descripción', type: 'textarea' },
   { name: 'imagen', label: 'Imagen (URL)', type: 'text' },
 ];
@@ -32,10 +33,26 @@ const ProductForm = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validación rápida
+    const camposIncompletos = Object.values(form).some(valor => valor === '');
+    if (camposIncompletos) {
+      toast.error('Todos los campos son obligatorios');
+      return;
+    }
+
     const productoForm = { ...form, precio: Number(form.precio) };
-    producto ? dispatch(editarProducto(productoForm)) : dispatch(agregarProducto(productoForm));
+
+    if (producto) {
+      dispatch(editarProducto(productoForm));
+      toast.success('Producto editado correctamente');
+    } else {
+      dispatch(agregarProducto(productoForm));
+      toast.success('Producto creado exitosamente');
+    }
+
     navigate('/');
   };
 
@@ -46,6 +63,7 @@ const ProductForm = () => {
         {campos.map(({ name, label, type }) => (
           <div className="mb-3" key={name}>
             <label className="form-label">{label}</label>
+
             {type === 'textarea' ? (
               <textarea
                 name={name}
@@ -55,6 +73,20 @@ const ProductForm = () => {
                 required
                 rows={4}
               />
+            ) : type === 'select' ? (
+              <select
+                name={name}
+                value={form[name]}
+                onChange={handleChange}
+                className="form-select"
+                required
+              >
+                <option value="">Seleccionar categoría</option>
+                <option value="men's clothing">Ropa de hombre</option>
+                <option value="women's clothing">Ropa de mujer</option>
+                <option value="electronics">Electrónica</option>
+                <option value="jewelery">Joyería</option>
+              </select>
             ) : (
               <input
                 type={type}
@@ -67,6 +99,7 @@ const ProductForm = () => {
             )}
           </div>
         ))}
+
         <button type="submit" className="btn btn-success">
           {producto ? 'Guardar Cambios' : 'Crear Producto'}
         </button>

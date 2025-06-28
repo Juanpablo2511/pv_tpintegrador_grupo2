@@ -6,7 +6,7 @@ export default function Favorites() {
 
   return (
     <div className="container mt-4">
-      <h1>Productos Favoritos</h1>
+      <h1 className="text-center mb-4">Productos Favoritos</h1>
 
       {favorites.length === 0 ? (
         <p>No hay productos favoritos.</p>
