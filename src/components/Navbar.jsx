@@ -1,4 +1,4 @@
-feature/buscador
+
 import { Link, useLocation, useNavigate} from 'react-router-dom'
 import {useState} from 'react';
 import { FaSearch } from 'react-icons/fa';
@@ -64,3 +64,4 @@ export default function Navbar() {
     </nav>
   )
 }
+
