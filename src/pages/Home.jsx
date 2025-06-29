@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductos } from '../productsSlice';
 import ProductCardFavoritos from '../components/ProductCardFavoritos';
+import { useLocation } from 'react-router-dom';
 
 export default function Home() {
   const dispatch = useDispatch();
   const productos = useSelector(state => state.productos.lista);
+  const location=useLocation();
 
   const [criterioOrden, setCriterioOrden] = useState('precio'); // 'precio' o 'nombre'
   const [ordenAscendente, setOrdenAscendente] = useState(true); // true = ascendente
+
+  const searchParams= new URLSearchParams(location.search);
+  const searchTerm = searchParams.get('search')?.toLowerCase() || "";
 
   useEffect(() => {
     if (productos.length === 0) {
@@ -16,8 +21,13 @@ export default function Home() {
     }
   }, [dispatch, productos.length]);
 
+  //ProductosFiltrados
+  const productosFiltrados =productos.filter(producto =>
+    producto.nombre.toLowerCase().includes(searchTerm) || producto.categoria.toLowerCase().includes(searchTerm)
+  )
+
   // Ordenar productos según el criterio y la dirección
-  const productosOrdenados = [...productos].sort((a, b) => {
+  const productosOrdenados = [...productosFiltrados].sort((a, b) => {
     if (criterioOrden === 'precio') {
       return ordenAscendente ? a.precio - b.precio : b.precio - a.precio;
     } else if (criterioOrden === 'nombre') {
@@ -51,7 +61,9 @@ export default function Home() {
           </button>
         </div>
       </div>
-
+      {productosOrdenados.length === 0 ? (
+        <p>No se encontraron productos con "{searchTerm}".</p>
+      ) : (
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {productosOrdenados.map(producto => (
           <div className="col" key={producto.id}>
@@ -59,6 +71,7 @@ export default function Home() {
           </div>
         ))}
       </div>
+      )}
     </div>
   );
 }
