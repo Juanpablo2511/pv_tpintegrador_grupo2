@@ -7,6 +7,7 @@ import CreateEditProduct from './pages/CreateEditProduct'
 import NotFound from './pages/NotFound'
 import './App.css';
 import PrivateRoute from './routes/PrivateRoute'
+import PublicRoute from './routes/PublicRoute'
 import Register from './pages/Register'
 import Login from './pages/Login'
 
@@ -19,14 +20,14 @@ function App() {
       <main className='flex-glow-1'>
         <Routes>
           {/* //RUTAS PUBLICAS */}
-         <Route path="/register" element={<Register />} />
-         <Route path="/login" element={<Login />} />
+         <Route path="/register" element={<PublicRoute> <Register /> </PublicRoute>} />
+         <Route path="/login" element={ <PublicRoute> <Login /> </PublicRoute>} />
          {/* //RUTAS PRIVADAS */}
          <Route path="/" element={ <PrivateRoute> <Home /> </PrivateRoute>} />
          <Route path="/favoritos" element={ <PrivateRoute> <Favorites /> </PrivateRoute>} />
          <Route path="/producto/:id" element={ <PrivateRoute> <ProductDetail /> </PrivateRoute>} />
-         <Route path="/crear" element={<CreateEditProduct />} />
-         <Route path="/editar/:id" element={<CreateEditProduct />} />
+         <Route path="/crear" element={<PrivateRoute> <CreateEditProduct /> </PrivateRoute>} />
+         <Route path="/editar/:id" element={<PrivateRoute> <CreateEditProduct /> </PrivateRoute>} />
          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
