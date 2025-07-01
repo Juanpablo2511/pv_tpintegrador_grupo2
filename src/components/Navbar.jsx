@@ -1,12 +1,17 @@
-
 import { Link, useLocation, useNavigate} from 'react-router-dom'
 import {useState} from 'react';
 import { FaSearch } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../userSlice'
+
 
 export default function Navbar() {
   const [searchTerm,setSearchTerm]= useState("");
   const navigate= useNavigate();
   const location = useLocation();
+  
+  const dispatch =useDispatch();
+  const user = useSelector(state => state.user.user);
 
   const handleSubmit = (e)=> {
     e.preventDefault();
@@ -16,6 +21,15 @@ export default function Navbar() {
       setSearchTerm("");
     }
   }
+
+
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate('/login');
+  }
+
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-4">
       <div className="container-fluid">
@@ -65,6 +79,7 @@ export default function Navbar() {
               </Link>
             </li>
           </ul>
+
           {/* //Buscador */}
           <form className="d-flex" onSubmit={handleSubmit}>
             <div className="input-group">
@@ -74,6 +89,16 @@ export default function Navbar() {
               </button>
             </div>
           </form>
+
+          {user && (
+            <div>
+              <span className="text-white mb-0">
+                Bienvenido, <strong>{user.email}</strong>
+              </span>
+              <button onClick={handleLogout} className="btn btn-sm btn-danger">Cerrar sesion</button>
+            </div>
+          )}
+
         </div>
       </div>
     </nav>

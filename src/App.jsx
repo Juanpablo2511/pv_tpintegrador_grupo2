@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route , useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Favorites from './pages/Favorites'
@@ -6,16 +6,25 @@ import ProductDetail from './pages/ProductDetail'
 import CreateEditProduct from './pages/CreateEditProduct'
 import NotFound from './pages/NotFound'
 import './App.css';
+import PrivateRoute from './routes/PrivateRoute'
+import Register from './pages/Register'
+import Login from './pages/Login'
 
 function App() {
+  const location = useLocation();
+  const hideNavbarRoutes = [ '/login' , '/register'];
   return (
     <div className='app-container'>
-      <Navbar />
+      { !hideNavbarRoutes.includes(location.pathname) && <Navbar />}
       <main className='flex-glow-1'>
         <Routes>
-         <Route path="/" element={<Home />} />
-         <Route path="/favoritos" element={<Favorites />} />
-         <Route path="/producto/:id" element={<ProductDetail />} />
+          {/* //RUTAS PUBLICAS */}
+         <Route path="/register" element={<Register />} />
+         <Route path="/login" element={<Login />} />
+         {/* //RUTAS PRIVADAS */}
+         <Route path="/" element={ <PrivateRoute> <Home /> </PrivateRoute>} />
+         <Route path="/favoritos" element={ <PrivateRoute> <Favorites /> </PrivateRoute>} />
+         <Route path="/producto/:id" element={ <PrivateRoute> <ProductDetail /> </PrivateRoute>} />
          <Route path="/crear" element={<CreateEditProduct />} />
          <Route path="/editar/:id" element={<CreateEditProduct />} />
          <Route path="*" element={<NotFound />} />
