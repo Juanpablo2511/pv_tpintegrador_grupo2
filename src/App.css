@@ -1,3 +1,4 @@
+/* Estilos generales de la aplicación */
 .app-container {
   display: flex;
   flex-direction: column;
@@ -9,9 +10,63 @@
 
 main {
   flex: 1;
-  padding: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
+  padding: 1rem;
+}
+
+/* Asegurar que el texto sea visible en el footer */
+footer {
+  color: white !important;
+}
+
+footer .text-muted {
+  color: #adb5bd !important;
+}
+
+footer a {
+  color: #adb5bd !important;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: white !important;
+}
+
+/* Asegurar que el texto sea visible en la hero section */
+.hero-section {
+  color: white !important;
+}
+
+.hero-section h1,
+.hero-section p,
+.hero-section .lead {
+  color: white !important;
+}
+
+/* Asegurar que los enlaces en la hero section sean visibles */
+.hero-section a {
+  color: white !important;
+}
+
+/* Asegurar que el texto en las tarjetas sea visible */
+.card {
+  color: #333 !important;
+}
+
+.card-title {
+  color: #2c3e50 !important;
+}
+
+.card-text {
+  color: #6c757d !important;
+}
+
+/* Asegurar que los botones tengan el color correcto */
+.btn-primary {
+  background-color: #667eea !important;
+  border-color: #667eea !important;
+}
+
+.btn-primary:hover {
+  background-color: #5a6fd8 !important;
+  border-color: #5a6fd8 !important;
 } 
