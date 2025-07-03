@@ -1,6 +1,7 @@
 body {
   margin: 0;
   background-color: #f8f9fa;
+  color: #333;
 }
 
 .app-container {
@@ -13,12 +14,12 @@ body {
 
 .navbar-custom {
   background-color: #007bff;
-  color: rgb(74, 74, 74);
+  color: white;
   padding: 1rem;
 }
 
 .navbar-custom a {
-  color: rgb(74, 74, 74);
+  color: white;
   text-decoration: none;
   margin-right: 1rem;
 }
@@ -50,10 +51,10 @@ body {
   font-weight: 600;
 }
 
-/* Footer Styles */
+/* Footer Styles - Corregidos para visibilidad */
 .footer {
   background-color: #343a40;
-  color: #ffffff;
+  color: #ffffff !important;
   padding: 2rem 0 1rem 0;
   margin-top: auto;
 }
@@ -71,19 +72,19 @@ body {
 }
 
 .footer-section h5 {
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .footer-section h6 {
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .footer-section p {
-  color: #ced4da;
+  color: #adb5bd !important;
   line-height: 1.6;
   margin-bottom: 0;
 }
@@ -95,13 +96,13 @@ body {
 }
 
 .social-link {
-  color: #ced4da;
+  color: #adb5bd !important;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .social-link:hover {
-  color: #ffffff;
+  color: #ffffff !important;
   text-decoration: none;
 }
 
@@ -112,7 +113,7 @@ body {
 }
 
 .footer-bottom small {
-  color: #6c757d;
+  color: #adb5bd !important;
 }
 
 /* Responsive */

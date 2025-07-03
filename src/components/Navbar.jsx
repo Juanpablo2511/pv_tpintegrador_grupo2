@@ -35,7 +35,8 @@ export default function Navbar() {
       <div className="container-fluid">
         {/* Logo */}
         <Link className="navbar-brand fw-bold" to="/">
-          🛒 TechStore
+          <img src="/logo192.png" alt="TechStore Logo" height="30" className="me-2" />
+          TechStore
         </Link>
 
         {/* Botón despegable */}
@@ -91,11 +92,11 @@ export default function Navbar() {
           </form>
 
           {user && (
-            <div>
-              <span className="text-white mb-0">
-                Bienvenido, <strong>{user.email}</strong>
+            <div className="d-flex align-items-center gap-3 ms-3">
+              <span className="text-white">
+                Bienvenido, <strong>{user.name || user.email}!</strong>
               </span>
-              <button onClick={handleLogout} className="btn btn-sm btn-danger">Cerrar sesion</button>
+              <button onClick={handleLogout} className="btn btn-sm btn-outline-light">Cerrar sesión</button>
             </div>
           )}
 
