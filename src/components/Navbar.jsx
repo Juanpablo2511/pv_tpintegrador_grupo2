@@ -77,9 +77,9 @@ export default function Navbar() {
           </form>
 
           {user && (
-            <div className="d-flex align-items-center gap-3">
+            <div className="d-flex align-items-center gap-3 ms-3">
               <span className="text-white">
-                Bienvenido, <strong>{user.name || user.email}</strong>
+                Bienvenido, <strong>{user.name || user.email}!</strong>
               </span>
               <button onClick={handleLogout} className="btn btn-sm btn-outline-light">Cerrar sesión</button>
             </div>

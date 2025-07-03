@@ -17,7 +17,7 @@ function App() {
       <Navbar />
       <main className="flex-grow-1">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<PrivateRoute><Home /></PrivateRoute>} />
           <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
           <Route path="/producto/:id" element={<ProductDetail />} />
@@ -93,7 +93,7 @@ function App() {
           <div className="row align-items-center">
             <div className="col-md-6">
               <p className="text-muted mb-0">
-                © 2024 TechStore. Todos los derechos reservados.
+                © 2025 TechStore. Todos los derechos reservados.
               </p>
             </div>
             <div className="col-md-6 text-md-end">
